@@ -24,8 +24,9 @@ class verification_table(models.Model):
     emp_id = models.IntegerField(primary_key=True)
     email = models.EmailField(unique=True)
     generated_code = models.IntegerField(unique=True,default=generate_unique_code)
-    current_time = models.DateTimeField(default=timezone.now)
+    created_time = models.DateTimeField(auto_now_add=True)
 
     
     def __str__(self):
+
         return str(self.email)
